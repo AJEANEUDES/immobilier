@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
-
+use App\Mail\MyMail;
 
 
 
@@ -148,6 +148,8 @@ class UserController extends Controller
             $nom_user = $client->nom_user;
             $prenoms_user = $client->prenoms_user;
 
+
+
             Mail::send(
                 'signup-email',
                 [
@@ -157,7 +159,6 @@ class UserController extends Controller
                 ],
 
                 function (Message $message) use ($email_user) {
-                    $message->APP_NAME('IMMO');
                     $message->subject('INSCRIPTION SUR LE SITE DE IMMO');
                     $message->to($email_user);
                 }

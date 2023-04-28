@@ -31,7 +31,6 @@ class PasswordResetController extends Controller
 
         if ($validator->fails()) return response()->json([
             "status" => false,
-            "reload" => false,
             "title" => "REINITIALISATION DE MOT DE PASSE",
             "message" => $validator->errors()->first()
         ]);
@@ -41,7 +40,6 @@ class PasswordResetController extends Controller
         if (!$user) {
             return response()->json([
                 "status" => false,
-                "reload" => false,
                 "title" => "REINITIALISATION DE MOT DE PASSE",
                 "message" => "Vous n'avez pas de compte car l'email saisi n'existe pas, donc impossible d'effectuer cette action !"
             ], 404);
@@ -103,7 +101,6 @@ class PasswordResetController extends Controller
         if (!$password_reset_data || Carbon::now()->subMinutes(50) > $password_reset_data->created_at) {
             return response()->json([
                 "status" => false,
-                "reload" => false,
                 "title" => "REINITIALISATION DE MOT DE PASSE",
                 "message" => "Lien de réinitialisation du mot de passe invalide ou lien expiré."
             ]);

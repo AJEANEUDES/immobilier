@@ -31,7 +31,7 @@ class SignupEmail extends Mailable
      */
     public function build()
     {
-        // return $this->view('view.name');
+
         return $this->markdown('signup-email')->with([
             'email_user' => $this->email_user
 
