@@ -159,6 +159,7 @@ class UserController extends Controller
                 ],
 
                 function (Message $message) use ($email_user) {
+                    $message->APP_NAME('IMMOBILIER');
                     $message->subject('INSCRIPTION SUR LE SITE DE IMMO');
                     $message->to($email_user);
                 }

@@ -21,7 +21,7 @@ class isAdminMiddleware
             return $next($request);
         } else {
             // return redirect()->route('login');
-            return redirect('/')->with('error', "Vous n'êtes pas un admin");
+            return redirect('/')->with('error', "Vous n'êtes pas un administrateur du site");
         }
     }
 }

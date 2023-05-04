@@ -76,6 +76,8 @@ class PasswordResetController extends Controller
                 ],
 
                 function (Message $message) use ($email_user) {
+                  
+                    $message->APP_NAME('IMMOBILIER');
                     $message->subject('Réinitialisation du mot de passe');
                     $message->to($email_user);
                 }
